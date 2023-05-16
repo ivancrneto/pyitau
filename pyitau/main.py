@@ -45,14 +45,8 @@ class Itau:
         """
         Get and return the credit card invoice.
         """
-        headers = {"op": self._home.op, "segmento": "VAREJO"}
-        self._session.post(ROUTER_URL, headers=headers)
-
-        response = self._session.post(ROUTER_URL, headers={"op": self._home.menu_op})
-        menu = MenuPage(response.text)
-
         headers = {
-            "op": menu.checking_cards_home_op,
+            "op": self._bigger_menu_page.checking_cards_home_op,
             "X-FLOW-ID": self._flow_id,
             "X-CLIENT-ID": self._client_id,
             "X-Requested-With": "XMLHttpRequest",

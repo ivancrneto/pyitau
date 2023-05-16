@@ -177,14 +177,6 @@ class AuthenticatedHomePage(SoupPage):
 class MenuPage(TextPage):
 
     @property
-    def checking_cards_home_op(self):
-        return re.search(
-            r"'cartoes','homeCategoria'(.*?)\"[\n\r\s\t]+data-op=\'([^\']+)\'",
-            self._text,
-            flags=re.DOTALL,
-        ).group(2)
-
-    @property
     def checking_account_op(self):
         return re.search(
             'urlBox : "(.*?)".*seletorContainer : "#boxContaCorrente",',
